@@ -137,6 +137,11 @@ button:hover { background: #0056b3; }
     background-size: contain; /* Mantém toda a imagem visível */
     background-position: top center; /* Mostra a parte superior da imagem */
     transform: scale(1); /* Remove zoom exagerado no mobile */
+    z-index: -1;
+    transform: scale(1.1);
+    filter: brightness(1.2);
+    transition: transform 5s ease-in-out, filter 5s ease-in-out;
+ 
   }
 
   .form-box {
