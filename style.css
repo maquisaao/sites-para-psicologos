@@ -129,4 +129,24 @@ button:hover { background: #0056b3; }
   textarea {
     min-width: 100%;
   }
+
+  /* Ajuste do background para celular */
+@media (max-width: 500px) {
+  #background {
+    width: 385%;
+    background-size: contain; /* Mantém toda a imagem visível */
+    background-position: top center; /* Mostra a parte superior da imagem */
+    transform: scale(1); /* Remove zoom exagerado no mobile */
+  }
+
+  .form-box {
+    max-width: 90%; /* Ajusta a largura da caixa do formulário */
+    padding: 1.5rem;
+  }
+
+  textarea {
+    min-width: 100%;
+  }
+}
+
 }
