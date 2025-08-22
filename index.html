@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Landing Page - Psicóloga</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+  <div id="background"></div>
+
+  <main class="center">
+    <section class="form-box">
+      <h2 style="text-align:center;">Deixe seu contato</h2>
+
+      <form id="contact-form" action="https://formspree.io/f/mkgzdvrn" method="POST">
+        <input type="text" name="nome" placeholder="Seu nome" required />
+        <input type="tel" name="whatsapp" placeholder="Seu WhatsApp" required />
+
+        <label class="checkbox">
+          <input type="checkbox" id="toggle-detalhes" />
+          Desejo fornecer mais detalhes
+        </label>
+
+        <div id="detalhes">
+          <input type="text" name="paciente" placeholder="Nome do paciente" />
+          <input type="number" name="idade" placeholder="Idade do paciente" min="0" />
+
+          <div class="radio-group">
+            <p class="radio-title">Primeiro atendimento?</p>
+            <label><input type="radio" name="primeiro_atendimento" value="sim"> Sim</label>
+            <label><input type="radio" name="primeiro_atendimento" value="nao"> Não</label>
+          </div>
+
+          <textarea name="mensagem" placeholder="Mensagem"></textarea>
+        </div>
+
+        <button type="submit">Enviar</button>
+      </form>
+
+      <!-- Tela de sucesso com redes sociais -->
+      <div id="success-container" class="success-container">
+        <p id="form-feedback" class="success-msg">
+          Obrigado! Em breve entraremos em contato. ✅
+        </p>
+        <div class="social-icons">
+          <a href="https://instagram.com/SEU_INSTAGRAM" target="_blank" title="Instagram">
+            <i class="fab fa-instagram fa-2x"></i>
+          </a>
+          <a href="https://wa.me/SEU_NUMERO" target="_blank" title="WhatsApp">
+            <i class="fab fa-whatsapp fa-2x"></i>
+          </a>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <script>
+    // Background animado
+    const bg = document.getElementById('background');
+    window.addEventListener('load', () => {
+      bg.style.transform = "scale(1) translate(0,0)";
+      bg.style.transition = "transform 8s ease-in-out, filter 8s ease-in-out";
+      bg.style.filter = "brightness(0.9)";
+    });
+
+    // Toggle detalhes
+    const toggle = document.getElementById('toggle-detalhes');
+    const detalhes = document.getElementById('detalhes');
+    toggle.addEventListener('change', () => {
+      if (toggle.checked) {
+        detalhes.style.maxHeight = detalhes.scrollHeight + "px";
+        detalhes.style.opacity = 1;
+      } else {
+        detalhes.style.maxHeight = 0;
+        detalhes.style.opacity = 0;
+      }
+    });
+
+    // Envio formulário via AJAX
+    const form = document.getElementById('contact-form');
+    const successContainer = document.getElementById('success-container');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      const action = form.getAttribute("action");
+
+      try {
+        const response = await fetch(action, {
+          method: "POST",
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          form.style.display = "none";
+          successContainer.style.display = "block";
+        } else {
+          alert("Ocorreu um erro. Tente novamente.");
+        }
+      } catch (error) {
+        alert("Erro de conexão. Verifique sua internet.");
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+/* Background */
+#background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("assets/foto-ana-quadrada.png");
+  background-size: cover;
+  background-position: center center;
+  z-index: -1;
+  transform: scale(1.1);
+  filter: brightness(1.2);
+  transition: transform 5s ease-in-out, filter 5s ease-in-out;
+}
+
+/* Centralização do formulário */
+.center {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Caixa do formulário */
+.form-box {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 2rem;
+  border: 1px solid #000;
+  border-radius: 8px;
+  max-width: 400px;
+  width: 100%;
+  text-align: left;
+}
+
+/* Campos do formulário */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+input, textarea, button {
+  padding: 0.8rem;
+  border: 1px solid #000;
+  border-radius: 4px;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
+  min-width: 368px;
+}
+
+/* Checkbox detalhes */
+.checkbox {
+  font-size: 0.95rem;
+}
+
+/* Campos opcionais animados */
+#detalhes {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+/* Radios */
+.radio-group {
+  display: flex;
+  align-items: baseline;
+  flex-direction: row;
+  gap: 1.3rem;
+}
+
+.radio-title {
+  margin: 0.4rem 0 0.2rem 0;
+  font-weight: bold;
+}
+
+/* Botão */
+button {
+  margin-top: 0.5rem;
+  background: #007BFF;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+button:hover { background: #0056b3; }
+
+/* Mensagem de sucesso */
+.success-container {
+  display: none;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.success-msg {
+  font-weight: bold;
+  color: green;
+  margin-bottom: 1rem;
+}
+
+/* Redes sociais */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.social-icons a {
+  color: #000;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icons a:hover {
+  transform: scale(1.2);
+  color: #007BFF;
+}
+
+/* Responsivo */
+@media (max-width: 500px) {
+  .form-box {
+    max-width: 90%;
+    padding: 1.5rem;
+  }
+
+  textarea {
+    min-width: 100%;
+  }
+}
