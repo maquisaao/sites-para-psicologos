@@ -1,0 +1,46 @@
+📊 Landing Page Psicóloga - By Max
+Este projeto é uma landing page moderna e responsiva voltada para psicólogas, desenvolvida em HTML, CSS e JavaScript. O objetivo é criar uma página simples, elegante e funcional para captar contatos de clientes através de formulários online.
+
+✨ Funcionalidades
+
+Layout moderno e responsivo, adaptável para celulares e desktops.
+
+Imagem de fundo animada transmitindo leveza e profissionalismo.
+
+Formulário funcional:
+
+Nome e WhatsApp obrigatórios.
+
+Toggle “Desejo fornecer mais detalhes” para que o cliente decida quanto quer compartilhar.
+
+Campos opcionais: Nome do paciente, Idade, Mensagem, Primeiro atendimento (Sim/Não).
+
+Tela de sucesso após envio do formulário, mantendo o estilo visual.
+
+Redes sociais clicáveis (Instagram e WhatsApp) integradas à tela de sucesso.
+
+Animações suaves para interações, toggle e background.
+
+🛠️ Tecnologias Utilizadas
+
+HTML5
+
+CSS3 (Flexbox, Media Queries, Transitions)
+
+JavaScript (toggle de campos, envio via AJAX)
+
+Font Awesome (ícones de redes sociais)
+
+Formspree (envio de formulário sem backend)
+
+Possíveis melhorias futuras
+
+Customização de cores e fontes via CSS para cada cliente.
+
+Integração com mais serviços de envio de formulário.
+
+Adição de animações mais sofisticadas no background.
+
+Implementar testes de responsividade automática para diferentes telas.
+
+Criar múltiplos templates prontos para diferentes clientes.
