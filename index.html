@@ -12,7 +12,7 @@
 
   <main class="center">
     <section class="form-box">
-      <h2 style="text-align:center;">Deixe seu contato</h2>
+      <h2 style="text-align:center;">Seja Bem Vindo</h2>
 
       <form id="contact-form" action="https://formspree.io/f/mkgzdvrn" method="POST">
         <input type="text" name="nome" placeholder="Seu nome" required />
@@ -42,7 +42,7 @@
       <!-- Tela de sucesso com redes sociais -->
       <div id="success-container" class="success-container">
         <p id="form-feedback" class="success-msg">
-          Obrigado! Em breve entraremos em contato. ✅
+          Obrigada! Em breve entrarei em contato. 🦋
         </p>
         <div class="social-icons">
           <a href="https://instagram.com/psicoanapaulaaraujo" target="_blank" title="Instagram">
@@ -58,13 +58,18 @@
   </main>
 
   <script>
-    // Background animado
+
+    // Background animado com blur ao focar no formulário
     const bg = document.getElementById('background');
+    const formBox = document.querySelector('.form-box');
     window.addEventListener('load', () => {
       bg.style.transform = "scale(1) translate(0,0)";
-      bg.style.transition = "transform 8s ease-in-out, filter 8s ease-in-out";
+      bg.style.transition = "transform 4s ease-in-out, filter 4s ease-in-out";
       bg.style.filter = "brightness(0.9)";
     });
+    formBox.addEventListener('mouseenter', () => { bg.style.filter = "brightness(1) blur(1px)"; });
+    formBox.addEventListener('mouseleave', () => { bg.style.filter = "brightness(1) blur(0)"; });
+
 
     // Toggle detalhes
     const toggle = document.getElementById('toggle-detalhes');

@@ -98,7 +98,7 @@ button:hover { background: #0056b3; }
 
 .success-msg {
   font-weight: bold;
-  color: green;
+  color: rgb(121, 12, 154);
   margin-bottom: 1rem;
 }
 
