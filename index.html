@@ -12,28 +12,25 @@
 
   <main class="center">
     <section class="form-box">
-      <h2 style="text-align:center;">Seja Bem Vindo</h2>
+      <h2 style="text-align:center;">Vamos conversar? Preencha seus dados para que eu possa entrar em contato e explicar melhor meu trabalho.</h2>
 
       <form id="contact-form" action="https://formspree.io/f/mkgzdvrn" method="POST">
-        <input type="text" name="nome" placeholder="Seu nome" required />
+        <input type="text" name="nome" placeholder="Qual seu seu nome?" required />
         <input type="tel" name="whatsapp" placeholder="Seu WhatsApp" required />
 
         <label class="checkbox">
           <input type="checkbox" id="toggle-detalhes" />
-          Desejo fornecer mais detalhes
+          Gostaria de deixar alguma dúvida ou comentário?
         </label>
 
         <div id="detalhes">
-          <input type="text" name="paciente" placeholder="Nome do paciente" />
-          <input type="number" name="idade" placeholder="Idade do paciente" min="0" />
-
           <div class="radio-group">
-            <p class="radio-title">Primeiro atendimento?</p>
+            <p class="radio-title">É para você?</p>
             <label><input type="radio" name="primeiro_atendimento" value="sim"> Sim</label>
             <label><input type="radio" name="primeiro_atendimento" value="nao"> Não</label>
           </div>
 
-          <textarea name="mensagem" placeholder="Mensagem"></textarea>
+          <textarea name="mensagem" placeholder="O que te trouxe até aqui?"></textarea>
         </div>
 
         <button type="submit">Enviar</button>
@@ -110,5 +107,27 @@
       }
     });
   </script>
+
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
+  const checkbox = document.getElementById("mostrarDetalhes");
+  const detalhes = document.getElementById("detalhes");
+
+  // Garante que inicie fechado
+  detalhes.style.maxHeight = "0";
+  detalhes.style.opacity = "0";
+
+  checkbox.addEventListener("change", function () {
+    if (this.checked) {
+      detalhes.style.maxHeight = detalhes.scrollHeight + "px";
+      detalhes.style.opacity = "1";
+    } else {
+      detalhes.style.maxHeight = "0";
+      detalhes.style.opacity = "0";
+    }
+  });
+});
+</script>
+
 </body>
 </html>

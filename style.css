@@ -1,4 +1,4 @@
-/* Background */
+/* ===== Background ===== */
 #background {
   position: fixed;
   top: 0;
@@ -7,102 +7,131 @@
   height: 100%;
   background-image: url("assets/foto-ana-quadrada.png");
   background-size: cover;
-  background-position: center center;
+  background-position: center;
   z-index: -1;
-  transform: scale(1.1);
-  filter: brightness(1.2);
+  transform: scale(1.05);
+  filter: brightness(1.15);
   transition: transform 5s ease-in-out, filter 5s ease-in-out;
 }
 
-/* Centralização do formulário */
+/* ===== Centralização ===== */
 .center {
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 1rem;
 }
 
-/* Caixa do formulário */
+/* ===== Caixa do formulário ===== */
 .form-box {
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.92);
   padding: 2rem;
-  border: 1px solid #000;
-  border-radius: 8px;
-  max-width: 400px;
+  border-radius: 12px;
+  max-width: 420px;
   width: 100%;
   text-align: left;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 0.8s ease;
 }
 
-/* Campos do formulário */
+/* ===== Campos ===== */
 form {
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
+  gap: 1rem;
 }
 
-input, textarea, button {
-  padding: 0.8rem;
-  border: 1px solid #000;
-  border-radius: 4px;
+input, textarea {
+  padding: 0.9rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: #007BFF;
+  box-shadow: 0 0 6px rgba(0, 123, 255, 0.3);
 }
 
 textarea {
   resize: vertical;
-  min-height: 100px;
-  min-width: 368px;
+  min-height: 120px;
+  width: 91%;
 }
 
-/* Checkbox detalhes */
+/* ===== Radios & Checkboxes ===== */
+.radio-group {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.radio-title {
+  margin: 0.3rem 0 0.2rem;
+  font-weight: bold;
+}
+
 .checkbox {
   font-size: 0.95rem;
 }
 
-/* Campos opcionais animados */
-#detalhes {
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: all 0.5s ease;
-}
-
-/* Radios */
-.radio-group {
-  display: flex;
-  align-items: baseline;
-  flex-direction: row;
-  gap: 1.3rem;
-}
-
-.radio-title {
-  margin: 0.4rem 0 0.2rem 0;
-  font-weight: bold;
-}
-
-/* Botão */
+/* ===== Botão ===== */
 button {
-  margin-top: 0.5rem;
+  padding: 1rem;
   background: #007BFF;
   color: white;
   border: none;
+  border-radius: 6px;
   cursor: pointer;
-  transition: background 0.3s ease;
+  font-weight: bold;
+  transition: all 0.3s ease;
 }
-button:hover { background: #0056b3; }
+button:hover {
+  background: #0056b3;
+}
+button:active {
+  transform: scale(0.98);
+}
 
-/* Mensagem de sucesso */
+/* Loader no botão */
+button.loading {
+  background: #0056b3;
+  pointer-events: none;
+  position: relative;
+}
+button.loading::after {
+  content: "";
+  width: 18px;
+  height: 18px;
+  border: 3px solid white;
+  border-top: 3px solid transparent;
+  border-radius: 50%;
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  animation: spin 0.8s linear infinite;
+}
+
+/* ===== Mensagem de sucesso ===== */
 .success-container {
   display: none;
   text-align: center;
   margin-top: 1rem;
+  animation: fadeIn 1s ease forwards;
 }
 
 .success-msg {
   font-weight: bold;
-  color: rgb(121, 12, 154);
+  font-size: 1.2rem;
+  color: #790c9a;
   margin-bottom: 1rem;
 }
 
-/* Redes sociais */
+/* ===== Redes sociais ===== */
 .social-icons {
   display: flex;
   justify-content: center;
@@ -110,48 +139,41 @@ button:hover { background: #0056b3; }
 }
 
 .social-icons a {
+  font-size: 1.6rem;
   color: #000;
   transition: transform 0.3s ease, color 0.3s ease;
 }
-
 .social-icons a:hover {
   transform: scale(1.2);
   color: #007BFF;
 }
 
-/* Responsivo */
+/* ===== Responsivo ===== */
 @media (max-width: 500px) {
   .form-box {
-    max-width: 90%;
+    max-width: 95%;
     padding: 1.5rem;
   }
 
-  textarea {
-    min-width: 100%;
-  }
-
-  /* Ajuste do background para celular */
-@media (max-width: 500px) {
   #background {
-    width: 385%;
-    background-size: contain; /* Mantém toda a imagem visível */
-    background-position: top center; /* Mostra a parte superior da imagem */
-    transform: scale(1); /* Remove zoom exagerado no mobile */
+    background-size: contain;
+    background-position: top center;
+    transform: scale(1);
     z-index: -1;
     transform: scale(1.1);
     filter: brightness(1.2);
     transition: transform 5s ease-in-out, filter 5s ease-in-out;
- 
-  }
-
-  .form-box {
-    max-width: 90%; /* Ajusta a largura da caixa do formulário */
-    padding: 1.5rem;
-  }
-
-  textarea {
-    min-width: 100%;
+    width: 385%;
   }
 }
 
+/* ===== Animações ===== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes spin {
+  from { transform: translateY(-50%) rotate(0deg); }
+  to { transform: translateY(-50%) rotate(360deg); }
 }
